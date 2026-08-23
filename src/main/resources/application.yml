@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://aws-0-ap-northeast-2.pooler.supabase.com:6543/postgres?sslmode=require
+    username: postgres.jhszuhemrpnhyhzhvkmh
+    password: quyendeptrai
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 4
+      minimum-idle: 2
+      idle-timeout: 30000
+      connection-timeout: 20000
+
+  ai:
+    vectorstore:
+      pgvector:
+        table-name: vector_store
+        dimension: 768
+        initialize-schema: true
+    ollama:
+      base-url: http://localhost:11434
+      embedding:
+        options:
+          model: qwen3:1.7b
+          temperature: 0.3
